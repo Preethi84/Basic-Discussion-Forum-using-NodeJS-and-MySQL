@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCA - Discussion Forum</title>
+  <link rel="stylesheet" href="/bootstrap.css" type="text/css">
+  <link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+
+    <body>
+        <nav>
+            <a href="/home/dashboard">
+              <img class="logo" src="/header.png" width="500" height="100" >
+            </a>
+            <ul>
+
+          <li>
+            <a href="/home/profile" >Profile view »</a>
+          </li>
+         
+            
+
+               <li><a href="/home/logout">logout</a></li>
+            </ul>
+          </nav>  
+          <div class="container mt-4">
+          <div class="card-body ">
+            <blockquote class="blockquote mb-0">
+              <% if(userData.length){ 
+                                    
+                for(var i = 0;i < userData.length;i++) { %>
+                      <a href="/home/display/<%= userData[i].post_id %>">
+                        <%=userData[i].post_id %>
+                       <%=userData[i].Question %></a>
+                       <a href="/home/delete/<%=userData[i].post_id%>" > <img class="del" src="/p.png" width="50" height="50"  ></a>                     
+                       &nbsp;&nbsp;&nbsp; 
+                       <a href="/home/edit/<%=userData[i].post_id%>"> <img class="del" src="/e.png" width="50" height="50" ></a>                     
+                                        
+                         <h6 class="namemve">Posted by <%=userData[i].Name %></h6></p><hr>
+                         <% }
+                
+                        }else{ %>
+                            <tr>
+                               <td colspan="3">No Questions have been posted by <%=userData[i].Name %> </td>
+                            </tr>
+                       <% } %>
+                           
+                  </blockquote>
+              </div>
+          </div>
+              
+        
+           <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+          <script src="/bootstrap.bundle.js" ></script>
+        </body>
+        </html>
+

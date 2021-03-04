@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCA - Discussion Forum</title>
+  <link rel="stylesheet" href="/bootstrap.css" type="text/css">
+  <link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+
+    <body>
+        <nav>
+            <a href="/home/dashboard">
+              <img class="logo" src="/header.png" width="500" height="100" >
+            </a>
+            <ul>
+             <li class="active"><a href="/home/staff_dashboard">Home</a>
+          </li>
+          <li>
+            <a href="/home/teacher-forum" type="button" class="btn btn-outline-warning">View forums</a>
+          </li>
+          <li>
+            <a href="/home/profile" >Profile view »</a>
+
+          </li>
+          <li>
+            <a href="/home/posts" >Posts »</a>
+
+          </li>
+               <li><a href="/home/logout">logout</a></li>
+               
+            </ul>
+          </nav>  
+          <div class="container mt-4">
+
+                    <% 
+                    if(userData.length!=0){
+                        var i=1;
+                        userData.forEach(function(data){
+                            %>
+                            <div class="card">
+                                <div class="card-body">
+                                    <%=i; %>
+                                    <%=data.forum_name %>
+                                </div>
+                              </div>
+                            <% i++; }) %>
+                            <% } else{ %>
+                            <tr>
+                                <td colspan="7">No Forums found under this authority</td>
+                            </tr>
+                            <% } %>
+        
+        
+        
+           <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+          <script src="/bootstrap.bundle.js" ></script>
+        </body>
+        </html>
+
+

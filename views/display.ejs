@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCA - Discussion Forum</title>
+  <link rel="stylesheet" href="/bootstrap.css" type="text/css">
+  <link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+
+    <body>
+        <nav>
+            <a href="/home/dashboard">
+              <img class="logo" src="/header.png" width="500" height="100" >
+            </a>
+            <ul>
+             <li class="active"><a href="/home/dashboard">Home</a>
+          </li>
+          <li>
+            <a href="/home/profile" >Profile view »</a>
+
+          </li>
+          <li>
+            <a href="/home/posts" >Posts »</a>
+
+          </li>
+          
+               <li><a href="/home/logout">logout</a></li>
+            </ul>
+          </nav>  
+          <div class="container mt-4">
+            <div class="card text-white bg-dark mb-3" style="max-width: 80rem;">
+                <div class="card-header "> 
+                    <%if(userData.length!=0){ %>       
+                   <p ><%=(typeof userData!='undefined')? userData[0].post_id:''%>
+                    </p>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"><%=(typeof userData!='undefined')? userData[0].Question:''%></h5>
+                  <h5><span class="badge badge-pill badge-danger"><%=(typeof userData!='undefined')? userData[0].keyword:''%></span></h5><br>
+                  <h5 class="card-text"><%=(typeof userData!='undefined')? userData[0].Body:''%></p>
+                <img class="disp-img" alt="No image" src="http://localhost:8080/images/upload_images/<%=(typeof userData!='undefined')? userData[0].attachment:''%>">
+                
+              </div>
+
+
+                <div class="card-footer">
+                    
+                </div>
+              </div>
+              <% }  %>
+        
+              <div class="card border-dark mb-3" style="max-width: 80rem;">
+                <div class="card-body text-dark">
+                  <blockquote class="blockquote mb-0">
+                 <p>
+                  <% if(userData.length){ 
+                  for(var i = 0;i < userData.length;i++) { %>
+                 [<%=userData[i].reply_id %>]
+                  <%=userData[i].body %>
+                  <h6 class="move">Replied by Student-ID : <%=userData[i].replied_by %></h6>
+                </p>
+
+                        </blockquote>
+                 
+                </div>
+              </div>
+
+              <div class="card border-dark mb-3" style="max-width: 80rem;">
+     <div class="card-body text-dark">
+
+
+      <form action="/home/comment/<%=userData[i].post_id %>" method="POST">
+        <% }
+                
+      }else{ %>
+          <tr>
+             <td colspan="3">No Replies for this post</td>
+          </tr>
+     <% } %>
+        <div class="form-group">
+          <textarea class="form-control" id="Body" name="body"></textarea>
+        </div>
+       </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-primary">Reply</button>  
+    </form>   
+        </div>
+      </div>          
+        </div>
+              
+        
+           <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+          <script src="/bootstrap.bundle.js" ></script>
+          <script type="text/javascript">
+            let likebtn = document.querySelector('#likebtn');
+            let dislikebtn = document.querySelector('#dislikebtn');
+            let input1 = document.querySelector('#input1');
+            let input2 = document.querySelector('#input2');
+            likebtn.addEventListener('click',()=>{
+                input1.value = parseInt(input1.value) + 1;
+                input1.style.color = "#12ff00";
+    
+            })
+      
+            </script>
+        </body>
+        </html>
+

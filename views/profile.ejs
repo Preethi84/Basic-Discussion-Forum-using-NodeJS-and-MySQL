@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/bootstrap.css" type="text/css">
+  <link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+ 
+    <nav>
+      <a href="/home/dashboard">
+          <img src="/header.png" width="500" height="100" >
+        </a>
+ <ul>
+  <li>
+    <a href="/home/posts" class="btn btn-danger">posts</a>
+</li>
+ <li>
+      <a href="/home/logout" class="btn btn-danger">Logout</a>
+ </li>
+
+ <li>
+  <a href =""><img class="profile-img" alt="User Pic" src="http://localhost:8080/images/upload_images/<%=data[0].image%>"></a>
+ </li>
+   </ul>
+</nav>
+<div class="container">
+  <!-- Static navbar -->
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+  
+
+          <div class="panel-heading">
+            <h3 class="panel-title">Welcome,  <%=data[0].email_id%></h3>
+          </div>
+          <br>
+          <div class="panel-body">
+            <div class="row">
+              <div class=" col-md-9 col-lg-9 "> 
+                <table class="table table-user-information">
+                  <tbody>
+                    <tr>
+                      <td> Student ID:</td>
+                      <td><%=data[0].id%></td>
+                    </tr>
+                    <tr>
+                      <td> Name:</td>
+                      <td><%=data[0].Name%></td>
+                    </tr>
+                    <tr>
+                      <td> Name:</td>
+                      <td><%=data[0].email_id%></td>
+                    </tr>
+                    <tr>
+                      <td> Course:</td>
+                      <td><%=data[0].Semester_course%></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+   
+
+  </body>
+</html>

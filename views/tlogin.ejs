@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCA - Discussion Forum</title>
+  <link rel="stylesheet" href="/bootstrap.css" type="text/css">
+  <link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <nav>
+    <a href="/">
+      <img src="/header.png" width="500" height="100" >
+    </a>
+    <ul>
+       <li><a href="/Register">Register</a></li>
+    </ul>
+  </nav>
+
+  <div class="container mt-4">
+    <div class="card">
+      <div class="card-header">
+        Staff Login form
+      </div>
+      <div class="card-body">
+
+        <form role="form" method="post" action="/tlogin">
+                                   
+            <div class="form-group">
+                <label for="email">staff email</label>
+                <input type="email" class="form-control" id="email" name="email_id">
+              </div>
+    
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password">
+              </div>
+    
+                <button type="submit" class="btn btn-primary">login</button>
+      
+            </form>    
+        </div>   
+    </div>                 
+    </div> 
+
+</body>
+</html>

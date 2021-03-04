@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCA - Discussion Forum</title>
+  <link rel="stylesheet" href="/bootstrap.css" type="text/css">
+  <link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+
+    <body>
+        <nav>
+            <a href="/home/dashboard">
+              <img class="logo" src="/header.png" width="500" height="100" >
+            </a>
+            <ul>
+             <li class="active"><a href="/home/dashboard">Home</a>
+          </li>
+          <li>
+            <a href="/home/profile" >Profile view »</a>
+
+          </li>
+          
+               <li><a href="/home/logout">logout</a></li>
+            </ul>
+          </nav>  
+
+          <div class="container mt-4">
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                  <h1 class="display-4">Machine Learning</h1>
+                  <p class="lead">Welcome to machine learning forum, students can post questions and interact here.</p>
+                </div>
+              </div>
+        
+              <div class="card border border-info ">
+                <div class="card-header ">
+                    <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Ask a Question</button>
+              </div>
+              <div class="card-body ">
+                <blockquote class="blockquote mb-0">
+                  <% if(userData.length){                                     
+                    for(var i = 0;i < userData.length;i++) { %>
+                         <p><img class="post-img" alt="User Pic" src="http://localhost:8080/images/upload_images/<%= userData[i].image %>">
+                          <a href="/home/display/<%= userData[i].post_id %>">
+                            <%=userData[i].post_id %>
+                           <%=userData[i].Question %></a>
+                                            
+                             <h6 class="namemve">Posted by <%=userData[i].Name %></h6></p><hr>
+                             <% }
+                    
+                            }else{ %>
+                                <tr>
+                                   <td colspan="3">No user</td>
+                                </tr>
+                           <% } %>
+                               
+                      </blockquote>
+                  </div>
+              </div>
+           
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Ask your Question</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+        
+                    <div class="modal-body">
+                        <form action="/home/create" method="POST"  enctype="multipart/form-data">
+        
+                        <div class="form-group">
+                          <label for="Question" class="col-form-label">Question:</label>
+                          <input type="text" class="form-control" id="Question" name="Question">
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="keyword" class="col-form-label">keyword:</label>
+                            <input type="text" class="form-control" id="keyword" name="keyword">
+                          </div>
+        
+        
+                            <div class="form-group">
+                    <label for="image">Attachment</label>           
+                        <input class="form-control" type="file" name="uploaded_attachment" accept=""/>   
+                </div> 
+        
+                           <div class="form-group">
+                          <label for="Body" class="col-form-label">Body:</label>
+                          <textarea class="form-control" id="Body" name="Body"></textarea>
+                        </div>
+                       </div>
+
+                    <div class="modal-footer">
+                      <button type="submit" class="btn btn-primary">Post</button>
+                    </form>
+                      <button type="button" class="btn btn-secondary">clear</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+
+        
+        
+           <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+          <script src="/bootstrap.bundle.js" ></script>
+        </body>
+        </html>
+

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCA - Discussion Forum</title>
+  <link rel="stylesheet" href="/bootstrap.css" type="text/css">
+  <link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+
+    <body>
+        <nav>
+            <a href="/home/dashboard">
+              <img class="logo" src="/header.png" width="500" height="100" >
+            </a>
+            <ul>
+             <li class="active"><a href="/home/staff_dashboard">Home</a>
+          </li>
+          <li>
+            <a href="/home/teacher_forum" type="button" class="btn btn-outline-warning">View forums</a>
+          </li>
+          <li>
+            <a href="/home/profile" >Profile view »</a>
+
+          </li>
+          <li>
+            <a href="/home/posts" >Posts »</a>
+
+          </li>
+               <li><a href="/home/logout">logout</a></li>
+               
+            </ul>
+          </nav>  
+          <div class="container mt-4">
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Create a forum</button>
+            &nbsp;&nbsp;&nbsp;
+                  </div>
+
+        
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Create a Forum</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+    
+                <div class="modal-body">
+                    <form action="/create_forum" method="POST"  enctype="multipart/form-data">
+    
+                    <div class="form-group">
+                      <label for="Question" class="col-form-label">Forum Name:</label>
+                      <input type="text" class="form-control" id="Question" name="forum_name">
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="keyword" class="col-form-label">Semester:</label>
+                        <input type="text" class="form-control" id="keyword" name="semester_course">
+                    </div>
+                        
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary">Post</button>
+                </form>
+                  <button type="button" class="btn btn-secondary">clear</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        
+           <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+          <script src="/bootstrap.bundle.js" ></script>
+        </body>
+        </html>
+
